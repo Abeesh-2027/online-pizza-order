@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Pizza</title>
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+    <style>
+        body{
+            background-image: url("{%static 'images pizza/One.jpeg' %}");
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <div class="spy"><marquee><h1 style="color:black;">WELCOME TO SPY PIZZA</h1></marquee></div>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username"><strong style="font-size: 24px;">Username:</strong></label><br>
+                <input type="text" id="username" required class="ff" placeholder="Enter Your Name">
+            </div>
+            <div class="input-group">
+                <label for="password"><strong style="font-size: 24px;">Password:</strong></label><br>
+                <input type="password" id="password" required  class="ff" placeholder="Enter Your Password">
+            </div>
+            <p id="errorMessage" class="error"></p>
+              <div class="mvp">
+                <label><input type="checkbox">Remember me</label><a href="#" style="margin-left: 150px;">Forgot Password</a>     
+              </div><br>
+            <button type="submit" id="loginBtn">Login</button>
+    
+        <div class="register-link">
+            <p>Don't have an account?<a href="#" style="margin-left: 180px;">Register</a></p>
+        </div>
+    </div>
+</form>
+<script src="{%static 'js/script.js'%}"></script>
+
+    
+</body>
+</html>

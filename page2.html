@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Pizza</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{%static 'css/style2.css'%}">
+    <script src="{%static 'js/scripts.js'%}"></script>
+</head>
+<body>
+    <div class="kk">
+        <header>
+            <div class="logo">
+                <img src="{%static 'images pizza/logo.jpg'%}" srcset="" height="50px">
+              </div>
+        <div class="search hi">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="searchInput" placeholder="Search for Pizza,Buger and More">
+            <button style="background-color:#4CAF50; color: white;" onclick="searchProducts()">Search</button>
+        </div>
+        <button style="margin-right: 20px; color: black; background-color: white; border: 2px solid black;" onclick="window.location.href = '/checkout_view'"><i class="fa-solid fa-cart-shopping fa-2x"></i></button>
+        </header><br>
+        <div id="productList"></div>
+        <div class="recommendations" id="recommendations"></div>
+    <h1>PIZZA</h1>
+   <div class="pizza">
+    <div class="rr">
+        <img src="{%static 'images pizza/CapsicumPaprikaHome.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <span><marquee><b>Capsicum & Red Paprika with Videshi Hot Sauce</b></marquee>
+        <p>price:₹89</p></span>
+        <button style="margin-left: 120px;" onclick="addToCart('Capsicum & Red Paprika with Videshi Hot Sauce', 89, '/static/image/CapsicumPaprikaHome.jpg')">Add To Cart</button>    
+    </div>
+    <div class="rh">
+        <img src="{%static 'images pizza/farmhouse.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Farmhouse</b></marquee>
+        <p>price:₹259</p>
+       <button style="margin-left: 120px;" onclick="addToCart('Farmhouse',259,'/static/image/farmhouse.jpg')">Add to Cart</button>
+    </div>
+    <div class="ro">
+        <img src="{%static 'images pizza/PaneerSpiceSupreme.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Paneer Spice Supreme</b></marquee>
+        <p>price:₹299</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Paneer Spice Supreme', 299, '/static/image/PaneerSpiceSupreme.jpg')"> Add To Cart </button>
+    </div>
+    <div class="rp">
+        <img src="{%static 'images pizza/Veg Extravaganza.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Veg Extra Vaganza</b></marquee>
+        <p>price:₹309</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Veg Extra Vaganza', 309, '/static/image/Veg Extravaganza.jpg')">Add To Cart</button>    
+    </div>
+   </div> 
+   <div class="pizza">
+    <div class="rr">
+        <img src="{%static 'images pizza/pepper barbecue chicken.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Pepper Barbecue Chicken</b></marquee>
+        <p>price:₹249</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Pepper Barbecue Chicken', 249, '/static/image/pepper barbecue chicken.jpg')">Add To Cart</button>    
+    </div>
+    <div class="rh">
+        <img src="{%static 'images pizza/spiced double chiken.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Spiced Double Chicken</b></marquee>
+        <p>price:₹329</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Spiced Double Chicken', 329, '/static/image/spiced double chiken.jpg')">Add To Cart</button>  
+    </div>
+    <div class="ro">
+        <img src="{%static 'images pizza/indi chicken tikka.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Indi Chicken Tikka</b></marquee>
+        <p>price:₹309</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Indi Chicken Tikka', 309, '/static/image/indi chicken tikka.jpg')">Add To Cart</button>  
+    </div>
+    <div class="rp">
+        <img src="{%static 'images pizza/non veg supreme.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Non Veg Supreme</b></marquee>
+        <p>price:₹399</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Non Veg Supreme', 399, '/static/image/non veg supreme.jpg')">Add To Cart</button>  
+    </div>
+   </div> 
+   <div class="pizza">
+    <div class="rr">
+        <img src="{%static 'images pizza/veggie_paradise_side.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Veggie Paradise</b></marquee>
+        <p>price:₹269</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Veggie Paradise', 269, '/static/image/veggie_paradise_side.jpg')">Add To Cart</button>  
+    </div>
+    <div class="rh">
+        <img src="{%static 'images pizza/VeggieParadise.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Cheese Volcano Veggie Paradise</b></marquee>
+        <p>price:₹299</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Cheese Volcano Veggie Paradise', 299, '/static/image/VeggieParadise.jpg')">Add To Cart</button>  
+    </div>
+    <div class="ro">
+        <img src="{%static 'images pizza/CheeseVolcanoBBQChicken.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Cheese Volcano BBQ Chicken</b></marquee>
+        <p>price:₹349</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Cheese Volcano BBQ Chicken', 349, '/static/image/CheeseVolcanoBBQChicken.jpg')">Add To Cart</button>  
+    </div>
+    <div class="rp">  
+        <img src="{%static 'images pizza/volcanoHomePeppyPaneer.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Cheese Volcano Peppy Pepper</b></marquee>
+        <p>price:₹399</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Cheese Volcano Peppy Pepper', 399, '/static/image/volcanoHomePeppyPaneer.jpg')">Add To Cart</button>  
+    </div>
+   </div> 
+   <h1>BURGER</h1>
+   <div class="burger">
+    <div class="rr">
+        <img src="{%static 'images pizza/Veg Rockstar Burger.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Veg Rockstar Burger</b></marquee>
+        <p>price:₹99</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Veg Rockstar Burger', 99,  '/static/image/Veg Rockstar Burger.jpg')">Add To Cart</button> 
+    </div>
+    <div class="rh">
+        <img src="{%static 'images pizza/Veg Snacker Burger.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Veg Snacker Burger</b></marquee>
+        <p>price:₹129</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Veg Snacker Burger', 129,  '/static/image/Veg Snacker Burger.jpg')">Add To Cart</button> 
+    </div>
+    <div class="ro">
+        <img src="{%static 'images pizza/Mexican Marvel Burger.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Mexican Marvel Burger</b></marquee>
+        <p>price:₹209</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Mexican Marvel Burger', 209,  '/static/image/Mexican Marvel Burger.jpg')">Add To Cart</button> 
+    </div>
+    <div class="rp">
+        <img src="{%static 'images pizza/Crispy Chicken Burger.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Crispy Chicken Burger</b></marquee>
+        <p>price:₹129</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Crispy Chicken Burger', 129,  '/static/image/Crispy Chicken Burger.jpg')">Add To Cart</button> 
+    </div>
+   </div> 
+   <h1>SANDWHICH</h1>
+   <div class="sandwhich">
+    <div class="rr">
+        <img src="{%static 'images pizza/Chilli_Cheese_Sandwich.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Chilli Cheese Sandwich</b></marquee>
+        <p>price:₹110</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Chilli Cheese Sandwich', 110,  '/static/image/Chilli_Cheese_Sandwich.jpg')">Add To Cart</button> 
+    </div>
+    <div class="rh">
+        <img src="{%static 'images pizza/Chicken_Tikka_Sandwich.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Chicken Tikka Sandwich</b></marquee>
+        <p>price:₹135</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Chicken Tikka Sandwich', 135,  '/static/image/Chicken_Tikka_Sandwich.jpg')">Add To Cart</button> 
+    </div>
+    <div class="ro">
+        <img src="{%static 'images pizza/Roasted_Chicken_and_Mustard_Sandwich.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Roasted Chicken and Mustard Sandwich</b></marquee>
+        <p>price:₹150</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Roasted Chicken and Mustard Sandwich', 150,  '/static/image/Roasted_Chicken_and_Mustard_Sandwich.jpg')">Add To Cart</button> 
+    </div>
+    <div class="rp">
+        <img src="{%static 'images pizza/Spinach_Corn_Cheese_Sandwich.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Spinach Corn Cheese Sandwich</b></marquee>
+        <p>price:₹120</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Spinach Corn Cheese Sandwich', 120,  '/static/image/Spinach_Corn_Cheese_Sandwich.jpg')">Add To Cart</button> 
+    </div>
+   </div> 
+   <h1>DESSERTS</h1>
+   <div class="desserts">
+    <div class="rr">
+        <img src="{%static 'images pizza/chocolavacake.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Choco Lava Cake</b></marquee>
+        <p>price:₹109</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Choco Lava Cake', 109, '/static/image/chocolavacake.jpg')">Add To Cart</button>
+    </div>
+    <div class="rh">
+        <img src="{%static 'images pizza/red velvet lavacake.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Red Velvet Lava Cake</b></marquee>
+        <p>price:₹139</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Red Velvet Lava Cake', 139,  '/static/image/red velvet lavacake.jpg')">Add To Cart</button>
+    </div>
+    <div class="ro">
+        <img src="{%static 'images pizza/Butterscotch_mousse.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>ButterScotch Mousse Cake</b></marquee>
+        <p>price:₹109</p>
+        <button style="margin-left: 120px;" onclick="addToCart('ButterScotch Mousse Cake', 109,  '/static/image/Butterscotch_mousse.jpg')">Add To Cart</button>
+    </div>
+    <div class="rp">
+        <img src="{%static 'images pizza/lemon-tart.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Lemon Tart</b></marquee>
+        <p>price:₹160</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Lemon Tart', 160, '/static/image/lemon-tart.jpg')">Add To Cart</button>
+    </div>
+   </div> 
+   <h1>ICE CREAM</h1>
+   <div class="icecream">
+    <div class="rr">
+        <img src="{%static 'images pizza/vanilla.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Vanilla Ice Cream</b></marquee>
+        <p>price:₹100</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Vanilla Ice Cream', 100,  '/static/image/vanilla.jp')">Add To Cart</button>
+    </div>
+    <div class="rh">
+        <img src="{%static 'images pizza/strawberry-ice-cream-berries.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Straw Berry Ice Cream</b></marquee>
+        <p>price:₹140</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Straw Berry Ice Cream', 140,  '/static/image/strawberry-ice-cream-berries.jpg')">Add To Cart</button>
+    </div>
+    <div class="ro">
+        <img src="{%static 'images pizza/mumberry-ice-cream-glass.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Blue Berry Ice Cream</b></marquee>
+        <p>price:₹160</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Blue Berry Ice Cream', 160,  '/static/image/mumberry-ice-cream-glass.jpg')">Add To Cart</button>
+    </div>
+    <div class="rp">
+        <img src="{%static 'images pizza/mixed ice cream.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Mixed Balls Ice Cream</b></marquee>
+        <p>price:₹455</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Mixed Balls Ice Cream', 435,  '/static/image/mixed ice cream.jpg')">Add To Cart</button>
+    </div>
+   </div> 
+   <h1>FRESH JUICE</h1>
+   <div class="freshjuices">
+    <div class="rr">
+        <img src="{%static 'images pizza/orange.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Orange Juice</b></marquee>
+        <p>price:₹100</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Orange Juice', 100,  '/static/image/orange.jpg')">Add To Cart</button>
+    </div>
+    <div class="rh">
+        <img src="{%static 'images pizza/pomegrants.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Pomegranate Juice</b></marquee>
+        <p>price:₹120</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Pomegranate Juice', 120,  '/static/image/pomegrants.jpg')">Add To Cart</button>
+    </div>
+    <div class="ro">
+        <img src="{%static 'images pizza/kiwi.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Kiwi Juice</b></marquee>
+        <p>price:₹120</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Kiwi Juice', 120,  '/static/image/kiwi.jpg')">Add To Cart</button>
+    </div>
+    <div class="rp">
+        <img src="{%static 'images pizza/lemon.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Lemon Juice</b></marquee>
+        <p>price:₹60</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Lemon Juice', 60,  '/static/image/lemon.jpg')">Add To Cart</button>
+    </div>
+   </div> 
+   <h1>COLD DRINKS</h1>
+   <div class="colddrinks">
+    <div class="rr">
+        <img src="{%static 'images pizza/cococola.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Coca Cola</b></marquee>
+        <p>price:₹40</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Coca Cola', 40,  '/static/image/cococola.jpg')">Add To Cart</button>
+    </div>
+    <div class="rh">
+        <img src="{%static 'images pizza/7up.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>7UP</b></marquee>
+        <p>price:₹40</p>
+        <button style="margin-left: 120px;" onclick="addToCart('7UP', 40,  '/static/image/7up.jpg')">Add To Cart</button>
+    </div>
+    <div class="ro">
+        <img src="{%static 'images pizza/fanta.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Fanta</b></marquee>
+        <p>price:₹40</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Fanta', 40,  '/static/image/fanta.jpg')">Add To Cart</button>
+    </div>
+    <div class="rp">
+        <img src="{%static 'images pizza/pespi.jpg'%}" alt="" srcset="" height="250px" width="300px">
+        <marquee><b>Pespi</b></marquee>
+        <p>price:₹40</p>
+        <button style="margin-left: 120px;" onclick="addToCart('Pespi', 40,  '/static/image/pespi.jpg')">Add To Cart</button>
+    </div>
+   </div> 
+   <div class="footer">
+     <div class="free">
+          <h1 style="color: black;">PIZZA <br>DELIVERY</h1>
+     </div>
+     <div class="address">
+        <h1 style="color: black;">987653421<br>(123) 456-4380</h1>
+     </div>
+     <div class="address">
+        <h1 style="color: black;">570 8th Ave, New York,VN <br>10021 United States</h1>
+     </div>
+   </div>
+
+</body>
+</html>
