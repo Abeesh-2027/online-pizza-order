@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Pizza</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .speed{
+            height: 800px;
+            width: 80%;
+            margin-left: 150px;
+        }
+        .do{
+            height: 200px;
+            width: 300px;
+            margin-left: 80px;
+            margin-right: 80px;
+        }
+        .od{
+            display: flex;
+            gap: 150px;
+        }
+        .bo{
+            height: 25px;
+            width: 100%;
+            display: flex;
+            gap: 600px;
+        }
+        .ka{
+            height: 60px;
+            width: 35%; 
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        a{
+           font-size: 32px; 
+           text-decoration: none;
+           color: blue;
+           margin: 15px;
+        }
+        .icon{
+            width: 5.625rem;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        a{
+            transition: transform 0.3s ease;
+        }
+        .icon:hover > i {
+           transform: scale(2.2);
+        }
+        .kam{
+            height: 60px;
+            width: 40%; 
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h5{
+            margin: 20px;
+            font-size: 22px;
+        } 
+        h2{
+            color: blue;
+        } 
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Services at Spy Pizza</h1>
+    <div class="speed">
+<h2>Order Your Pizza Online :</h2>
+<h5>Skip the wait! Order your favorite pizzas directly from our menu or create your own masterpiece. Fast delivery to your door from Spy Pizza.</h5>
+
+<h2>Build Your Custom Pizza :</h2>
+ <h5>Take control of your pizza! Choose from a variety of crusts, sauces, and toppings to design the perfect pizza at Spy Pizza.</h5>
+
+<h2>Fast Delivery & Pickup :</h2>
+<h5>Whether you prefer delivery or want to grab your pizza in-store, Spy Pizza has you covered. Get your pizza hot and fresh, delivered fast or ready for pickup.</h5>
+
+<h2>Pizza Catering for Events :</h2>
+<h5>Need pizza for a party or corporate event? Let Spy Pizza cater your next event with our customizable catering packages designed for any group size.</h5>
+
+<h2>Special Deals & Discounts :</h2>
+<h5>Don’t miss out on Spy Pizza's amazing offers! Check our deals page for discounts, combo deals, and limited-time promotions on all your favorite pizzas.</h5>
+
+<h2>Spy Rewards Program :</h2>
+<h5>Get rewarded every time you order! Join Spy Pizza’s loyalty program and earn points for free pizzas, discounts, and exclusive perks.</h5>
+
+<h2>Spy Pizza Gift Cards :</h2>
+<h5>The gift of pizza is always the right choice! Buy Spy Pizza gift cards for friends, family, or colleagues—perfect for any occasion.</h5>
+
+
+    </div>
+    <div class="footer" style="height: 600px; width: 100%; background-color: azure;">
+        <div class="pic">
+           <img src="{%static 'images pizza/pizza.jpg'%}" alt="" srcset="" height="200px" width="250px" style="margin-left: 700px;">
+        </div><br>
+        <div class="od">
+        <div class="do">
+            <h1 style="text-align: center;">ADDRESS</h1>
+            <P style="text-align: center;">570 8th Ave, New York,VN <br>10021 United States</P>
+        </div>
+        <div class="do">
+            <h1 style="text-align: center;">BOOK A TABLE</h1>
+            <P style="text-align: center;">Reserve Your Table at Spy Pizza <br>for a Memorable dining experience</P>
+            <b><P style="text-align: center; color: red; font-size: 20px;">987653421</P></b>
+        </div>
+        <div class="do">
+            <h1 style="text-align: center;">OPENING HOURS</h1>
+            <P style="text-align: center;">Monday-Friday<br>10.00AM-10.00PM</P>
+        </div>
+        </div>
+        <div class="bo">
+            <div class="kam">
+                <b style="font-size: 18px;">&copy Get Pizza All Rights Reserved. Designed By Spy Soft</b>
+            </div>
+            <div class="ka">
+                   <a href="https://www.facebook.com/dominospizzaindia/" style="color: #0077b5;" class="icon"><i class="fa-brands fa-facebook"></i></a>
+                   <a href="https://www.instagram.com/pizzahut_india/?hl=en" style="color: #9b4d96;" class="icon 1"><i class="fa-brands fa-instagram"></i></a>
+                   <a href="https://groupsor.link/group/invite/LouGtnBIZbtA0ZpSvgZUjM" style="color: #25d366;" class="icon"><i class="fa-brands fa-whatsapp"></i></a>
+                   <a href="https://x.com/pizzahutin?lang=en" style="color: #1da1f2;" class="icon"><i class="fa-brands fa-twitter"></i></a>
+                   <a href="https://www.youtube.com/channel/UCKK8vn91F3MGGipvsutp5kA" style="color: red;" class="icon"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

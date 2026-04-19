@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {%load static%}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spy Pizza</title>
+  <style>
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px;
+    }
+    .cart-item img {
+      width: 50px;
+      height: 50px;
+    }
+    .button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      height: 50px;
+      width: 100px;
+      border-radius: 5px;
+      margin-left: 800px;
+    }
+    .button:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    }
+    .buttons{
+      padding: 5px 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .buttons:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    }
+    .input-box {
+      width: 50px;
+      height: 30px;
+    }
+    .customer-details {
+      margin-top: 20px;
+    }
+    #name{
+      height: 50px;
+      width: 1000px;
+      margin-left: 20px;
+    }
+    #address{
+      height: 50px;
+      width: 1000px;
+      margin-left:20px;
+    }
+    #email{
+      height: 50px;
+      width: 1000px;
+      margin-left:35px;
+    }
+    #contactNumber{
+      height: 50px;
+      width: 200px;
+    }
+    #card-number{
+      height: 50px;
+      width: 200px;
+    }
+    #security-code{
+      height: 50px;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Cart</h1>
+  
+  <div id="cart-items"></div>
+
+  <div>
+    <p>Total Quantity: <span id="total-quantity">0</span></p>
+    <p>Total Price: ₹<span id="total-price">0</span></p>
+  </div>
+  <form method="POST" style="margin: 20px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" onclick="placeOrder()" class="button">Submit</button>
+  
+  </form>
+  
+  
+    
+  
+  
+
+  
+  
+
+  <!-- <form method="POST" class="p-3">
+    {%csrf_token%}
+
+  
+    {{ form.as_p }}
+   
+    <button style="height: 50px; width: 100px; border-radius: 10px;">Sumbit</button>
+     <tr><td><strong>Name id:</strong></td></tr><input type="text" name="{{form.name}}" style="height: 50px; width: 800px;"><br><br>
+     <tr><td><strong>Address id:</strong></td></tr><input type="text" name="{{address.name}}"  style="height: 50px; width: 800px;"><br><br>
+     <tr><td><strong>Email id:</strong></td></tr><input type="text" name="{{email.name}}"   style="height: 50px; width: 800px;"><br><br>
+     <tr><td><strong>Contact id:</strong></td></tr><input type="text" name="{{contact.name}}"  style="height: 50px; width: 800px;"><br><br>
+     <tr><td><button style="height: 50px; width: 100px; border-radius: 10px;">Sumbit</button></td></tr> -->
+
+
+
+    <h2 style="margin-left: 20px;">Payment Method</h2><br><br>
+
+        <div>
+            <input type="radio" id="cod" name="payment" value="cash" checked >
+            <label for="cod" style="font-size: 32px;">Cash on Delivery</label>
+        </div>
+        <div>
+            <input type="radio" id="credit-card" name="payment" value="card">
+            <label for="credit-card" style="font-size: 32px;">Pay with Credit Card</label>
+        </div>
+        
+        <div id="credit-card-info" style="display:none;">
+            <h2 style="margin-left: 20px;">Enter Credit Card Details</h2>
+            <label for="name" style="margin-left: 40px;"><b>Cardholder Name:</b></label>
+            <input type="text" id="name" name="name" placeholder="Enter Cardholder Name" required><br><br>
+            
+            <label for="card-number" style="margin-left: 40px;"> <b>Credit Card Number:</b></label>
+            <input type="text" id="card-number" name="card-number" placeholder="0000-0000-0000" required><br><br>
+            
+            <label for="security-code" style="margin-left: 40px;"><b>Security Code (CVV):</b></label>
+            <input type="password" id="security-code" name="security-code" placeholder="******" required><br><br>
+        </div>
+      
+      <button type="submit" onclick="submitOrder()" class="button">Submit Order</button>
+    </form>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function updateCartDisplay() {
+      const cartItemsContainer = document.getElementById('cart-items');
+      cartItemsContainer.innerHTML = '';
+      
+      let totalQuantity = 0;
+      let totalPrice = 0;
+      
+      cart.forEach((item, index) => {
+        const cartItemDiv = document.createElement('div');
+        cartItemDiv.className = 'cart-item';
+        
+        cartItemDiv.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <span>${item.name}</span>
+          <span>₹${item.price}</span>
+          <input type="number" class="input-box" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)">
+          <button class="buttons" onclick="removeFromCart(${index})">Remove</button>
+        `;
+        
+        cartItemsContainer.appendChild(cartItemDiv);
+        
+        totalQuantity += item.quantity;
+        totalPrice += item.price * item.quantity;
+      });
+      
+      document.getElementById('total-quantity').innerText = totalQuantity;
+      document.getElementById('total-price').innerText = totalPrice.toFixed(2);
+    }
+
+    function updateQuantity(index, newQuantity) {
+      cart[index].quantity = parseInt(newQuantity);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartDisplay();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartDisplay();
+    }
+
+    function placeOrder() {
+      if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+
+      document.getElementById('customer-details-form').style.display = 'block';
+    }
+
+    function submitOrder(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const address = document.getElementById('address').value;
+      const email = document.getElementById('email').value;
+      const contactNumber = document.getElementById('contactNumber').value;
+
+      
+      alert('Your order has been placed successfully!');
+      
+      localStorage.removeItem('cart');
+      
+        
+    }
+
+    updateCartDisplay();
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const codRadio = document.getElementById('cod');
+    const creditCardRadio = document.getElementById('credit-card');
+    const creditCardInfoDiv = document.getElementById('credit-card-info');
+    
+    function toggleCreditCardFields() {
+        if (creditCardRadio.checked) {
+            creditCardInfoDiv.style.display = 'block';
+        } else {
+            creditCardInfoDiv.style.display = 'none';
+        }
+    }
+
+    codRadio.addEventListener('change', toggleCreditCardFields);
+    creditCardRadio.addEventListener('change', toggleCreditCardFields);
+    
+    toggleCreditCardFields();
+
+});
+function submitOrder() {
+            const name = document.getElementById("name").value;
+            const address = document.getElementById("address").value;
+
+            if (name && address) {
+                alert("Your order was successfully placed!");
+                sessionStorage.setItem("order-details", JSON.stringify({
+                    name: name,
+                    address: address,
+                }));
+                window.location.href = '/e'
+            } else {
+                alert("Please enter your name and address.");
+            }
+        }
+
+  </script>
+</body>
+</html>

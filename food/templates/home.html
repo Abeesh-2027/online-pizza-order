@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Pizza</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{%static 'css/color.css'%}">
+    <style>
+        .image{
+            background-image: url("{%static 'images pizza/backgroung.jpg' %}");
+        }
+    </style>
+    <script>
+        function goToNextPage() {
+          window.open("login.html")
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="spy">
+        <img src="{%static 'images pizza/logo.jpg'%}"  srcset="" height="50px" width="50px ">
+    </div>
+        <nav>
+            <ul class="nav">
+                <li><a href="/b" class="home">Home</a></li>
+                <li><a href="/c" class="home">Menu</a></li>
+                <li><a href="/f" class="home">About</a></li>
+            </ul>
+        </nav>
+        <button class="der" style="margin-right: 50px;" onclick="goToNextPage()">Log out</button>
+        
+    </header>
+    <div class="ki">
+        <div class="win"></div>
+        <div class="tin"><img src="{%static 'images pizza/VegPizza.jpg'%}" alt="" srcset="" height="100px" width="100px" ><b>VegPizza</b></div>
+        <div class="pin"><img src="{%static 'images pizza/SpicyPizza.jpg'%}" alt="" srcset="" height="100px" width="100px"><b>SpicyPizza</b></div>
+        <div class="bin"><img src="{%static 'images pizza/PizzaManianew.jpg'%}" alt="" srcset="" height="100px" width="100px"><b>PizzaMaianew</b></div>
+        <div class="sin"><img src="{%static 'images pizza/MealsCombo.jpg'%}" alt="" srcset="" height="100px" width="100px"><b>MealsCombo</b></div>
+        <div class="kin"><img src="{%static 'images pizza/cheesevolcano.jpg'%}" alt="" srcset="" height="100px" width="100px"><b>cheesevolcano</b></div>
+        <div class="din"><img src="{%static 'images pizza/cheeseburst.jpg'%}" alt="" srcset="" height="100px" width="100px"><b>cheeseburst</b></div>
+        <div class="rin"><img src="{%static 'images pizza/Beverages.jpg'%}" alt="" srcset="" height="100px" width="100px"><b>Beverages</b></div>
+        <div class="rin"><img src="{%static 'images pizza/deserts.jpg'%}" alt="" srcset="" height="100px" width="100px"><b>Deserts</b></div>
+        <div class="rin"></div>
+    </div><br>  
+
+    <div class="image">
+        <div class="bat">
+              <h1 style="color: black; font-size: 74px;">The Best Place To <br>Satisfy Your Tummy</h1> 
+              <h2 style="color: black; margin-left: 100px;">Special New Chicken Pizza available only at</h2>
+              <a href="/f" style="margin-left: 150px; color: red;">Spy Pizza</a>
+        </div>
+        <div class="Tab">
+            <img src="{%static 'images pizza/Ho.jpg'%}" alt="" srcset="">
+        </div>
+        </div>
+        <div class="footer" style="height: 600px; width: 100%; background-color: azure;">
+            <div class="pic">
+            <img src="{%static 'images pizza/pizza.jpg'%}" alt="" srcset="" height="200px" width="250px" style="margin-left: 700px;">
+            </div><br>
+            <div class="od">
+            <div class="do">
+                <h1 style="text-align: center;">ADDRESS</h1>
+                <P style="text-align: center;">570 8th Ave, New York,VN <br>10021 United States</P>
+            </div>
+            <div class="do">
+                <h1 style="text-align: center;">BOOK A TABLE</h1>
+                <P style="text-align: center;">Reserve Your Table at Spy Pizza <br>for a Memorable dining experience</P>
+                <b><P style="text-align: center; color: red; font-size: 20px;">987653421</P></b>
+            </div>
+            <div class="do">
+                <h1 style="text-align: center;">OPENING HOURS</h1>
+                <P style="text-align: center;">Monday-Friday<br>10.00AM-10.00PM</P>
+            </div>
+            </div>
+            <div class="shop">
+                <a href="/c" class="mg">Menu</a>
+                <a href="/h" class="mg">Contact</a>
+                <a href="/k" class="mg">Privacy</a>
+                <a href="/j" class="mg">Serives</a>
+                <a href="/i" class="mg">FAQ & Help</a>
+            </div><br>
+            <div class="bo">
+                <div class="kam">
+                    <b style="font-size: 18px;">&copy Get Pizza All Rights Reserved. Designed By Spy Soft</b>
+                </div>
+                <div class="ka">
+                       <a href="https://www.facebook.com/dominospizzaindia/" style="color: #0077b5;" class="icon"><i class="fa-brands fa-facebook"></i></a>
+                       <a href="https://www.instagram.com/pizzahut_india/?hl=en" style="color: #9b4d96;" class="icon 1"><i class="fa-brands fa-instagram"></i></a>
+                       <a href="https://groupsor.link/group/invite/LouGtnBIZbtA0ZpSvgZUjM" style="color: #25d366;" class="icon"><i class="fa-brands fa-whatsapp"></i></a>
+                       <a href="https://x.com/pizzahutin?lang=en" style="color: #1da1f2;" class="icon"><i class="fa-brands fa-twitter"></i></a>
+                       <a href="https://www.youtube.com/channel/UCKK8vn91F3MGGipvsutp5kA" style="color: red;" class="icon"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+         
+</body>
+</html>

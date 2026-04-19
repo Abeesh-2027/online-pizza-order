@@ -1,0 +1,61 @@
+body{
+    background-image: url("{% static 'images pizza/One.jpeg' %}");;
+    background-size: cover;
+    
+}
+.login-container {
+    width: 420px;
+    margin-top: 150px;
+    border-radius: 5px;
+    margin-left: 150px;
+    padding: 50px 50px;
+    background: transparent;
+    border: 2px solid black ;
+    backdrop-filter: blur(20px);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+button{
+    height: 50px;
+    width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    letter-spacing: 4px;
+    border-radius: 20px;
+    outline: none;
+    background: transparent;
+    color: white;
+    background-color:#ff0080;
+}
+button:hover{
+    box-shadow: 0 0 5px #ff0080,
+                0 0 25px #ff0080,
+                0 0 50px #ff0080,
+                0 0 100px #ff0080;
+}
+.ff{
+    height: 50px;
+    width: 400px;
+    border-radius: 10px;
+    border-color: blue;
+    font-size: 16px;
+}
+a{
+    text-decoration: none;
+}
+.mvp{
+    height: 30px;
+    width: 400px;
+    margin-left: 5px;
+}
+a:hover{
+    color: red;
+}
