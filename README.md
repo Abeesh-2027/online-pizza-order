@@ -148,7 +148,6 @@ This project is open-source and free to use.
 
 ---
 
----
 
 ⭐ If you like this project, give it a star!
 # online-pizza-order
