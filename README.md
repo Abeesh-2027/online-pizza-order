@@ -29,8 +29,6 @@ SpyPizza is a web-based food ordering and sales management system built using **
 * 🛒 Add to Cart functionality
 * 📦 Order Management System
 * 🧾 Admin Panel for managing products and orders
-* 🔍 Dynamic product display
-* 📱 Responsive UI (HTML & CSS)
 * ⚡ Fast backend using Django
 
 ---
