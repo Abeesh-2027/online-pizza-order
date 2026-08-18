@@ -21,7 +21,7 @@ SpyPizza is a web-based food ordering and sales management system built using **
 ## cartpage
 ![image alt](https://github.com/Abeesh-2027/online-pizza-order/blob/7eada4eb5b04d356f9aaef68c2708b9b79009cd4/Screenshot%202026-08-17%20093627.png)
 ## serverpage
-![image alt](https://github.com/Abeesh-2027/online-pizza-order/blob/c0d8a747dd41652d5b9df4e6283bb7e4b7f7dcab/Screenshot%20(70).png)
+![image alt](https://github.com/Abeesh-2027/online-pizza-order/blob/9c348561432b6977ac9aa333b1349729216b7a13/Screenshot%202026-08-17%20093641.png)
 
 ## 🚀 Features
 
