@@ -31,5 +31,5 @@ def checkout_view(request):
         form = CustomerForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/thank-you')  # Make sure /thank-you exists!
+            return redirect('/e/')  # sucess.html (order confirmation)
     return render(request, "cust.html", {'form': form})

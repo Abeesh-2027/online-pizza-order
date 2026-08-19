@@ -20,12 +20,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*y530%i%c6n)d()kz$swj9l-kpisjhk)1+5+b##jv89yt&a53f'
+# In production (Render) this is read from the SECRET_KEY env var.
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'django-insecure-*y530%i%c6n)d()kz$swj9l-kpisjhk)1+5+b##jv89yt&a53f',
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Set DEBUG=False as an env var on Render. Defaults to True for local dev.
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
+
+extra_host = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if extra_host:
+    ALLOWED_HOSTS.append(extra_host)
+
+CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']
 
 
 # Application definition
@@ -42,6 +53,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -72,16 +84,19 @@ WSGI_APPLICATION = 'pizza.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+#
+# Local dev: uses SQLite (db.sqlite3), zero setup needed.
+# On Render: if you attach a Postgres database, set the DATABASE_URL env
+# var (Render fills this in automatically when you link a database) and
+# it will be used instead automatically.
+
+import dj_database_url
 
 DATABASES = {
-   'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'food',
-         'USER':'root',
-         'PASSWORD':'',
-         'HOST':'localhost',
-         'PORT':'3306'
-    }
+    'default': dj_database_url.config(
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        conn_max_age=600,
+    )
 }
 
 
@@ -120,7 +135,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS:[os.path.join(BASE_DIR,'static')] # type: ignore
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 
 

@@ -1,20 +1,15 @@
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    
-    const correctUsername = "spy";
-    const correctPassword = "12345";
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const errorMessage = document.getElementById('errorMessage');
 
-    if (username !== correctUsername && password !== correctPassword) {
-        alert("Your username and password are wrong");
-    } else if (username !== correctUsername) {
-        alert("Your username is wrong");
-    } else if (password !== correctPassword) {
-        alert("Your password is wrong");
+    // Demo login: any non-empty username & password is accepted.
+    if (!username || !password) {
+        errorMessage.textContent = "Please enter a username and password.";
     } else {
-        
-        window.location.href='b/';
+        sessionStorage.setItem('spypizza_user', username);
+        window.location.href = 'b/';
     }
 });

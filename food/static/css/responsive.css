@@ -1,0 +1,234 @@
+/* ============================================================
+   Global responsive layer for SpyPizza
+   Loaded LAST on every page so it can override the fixed-width
+   desktop-only styles in styles.css / style2.css / color.css
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+}
+
+/* Anything that was hard-coded to a huge fixed pixel width
+   (search bars, product rows, form fields, buttons, containers)
+   should never be able to force horizontal scrolling. */
+.login-container,
+.search,
+.ff,
+button,
+input,
+select,
+textarea,
+.pizza, .burger, .desserts, .sandwhich, .freshjuices,
+.icecream, .colddrinks, .softdrinks,
+.rr, .rp, .rh, .ro,
+.bat, .Tab,
+.od, .bo, .shop, .footer, .ki,
+#name, #address, #email, #contactNumber,
+#card-number, #security-code,
+.button, .buttons,
+.image {
+  max-width: 100%;
+}
+
+/* Flex rows of menu items / footer / gallery: allow wrapping
+   instead of overflowing off the right edge of the screen */
+.pizza, .burger, .desserts, .sandwhich, .freshjuices,
+.icecream, .colddrinks, .softdrinks,
+.od, .bo, .shop, .footer, .ki, .recommendations {
+  flex-wrap: wrap;
+}
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .search {
+    width: 90% !important;
+  }
+
+  .bat, .Tab {
+    width: 100% !important;
+    margin-left: 20px !important;
+  }
+
+  .image {
+    flex-wrap: wrap;
+    height: auto !important;
+    padding: 30px 15px;
+  }
+
+  .bat h1 {
+    font-size: 42px !important;
+  }
+
+  .der {
+    margin-left: 20px !important;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    height: auto !important;
+    padding: 12px !important;
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .nav {
+    text-align: center;
+  }
+
+  .nav li {
+    padding: 4px 12px !important;
+  }
+
+  .nav li a {
+    margin-left: 0 !important;
+  }
+
+  .logo, .der {
+    margin: 8px auto !important;
+  }
+
+  /* login page */
+  .login-container {
+    width: 90% !important;
+    margin: 60px auto !important;
+    padding: 30px 20px !important;
+  }
+
+  .ff, .mvp, .login-container button {
+    width: 100% !important;
+  }
+
+  /* menu / product rows */
+  .pizza, .burger, .desserts, .sandwhich, .freshjuices,
+  .icecream, .colddrinks, .softdrinks {
+    height: auto !important;
+    justify-content: center;
+  }
+
+  .rr, .rp, .rh, .ro, .product {
+    width: 100% !important;
+    max-width: 320px;
+    margin: 15px auto !important;
+    text-align: center;
+  }
+
+  .rr img, .rp img, .rh img, .ro img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .rr button, .rp button, .rh button, .ro button {
+    margin-left: 0 !important;
+  }
+
+  p {
+    margin-left: 15px !important;
+  }
+
+  /* home page banner */
+  .bat h1 {
+    font-size: 30px !important;
+  }
+
+  .bat h2 {
+    margin-left: 0 !important;
+  }
+
+  .bat a {
+    margin-left: 0 !important;
+    display: inline-block;
+  }
+
+  /* home page icon grid */
+  .ki {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .win, .tin, .pin, .bin, .sin, .kin, .din, .rin {
+    width: 100px !important;
+    height: 100px !important;
+    margin: 6px !important;
+  }
+
+  .shop, .bo, .od {
+    flex-direction: column;
+    gap: 15px !important;
+    margin-left: 0 !important;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer {
+    flex-direction: column;
+    height: auto !important;
+    padding: 15px;
+  }
+
+  .free, .address {
+    width: 100% !important;
+    height: auto !important;
+    margin-right: 0 !important;
+  }
+
+  /* cart & checkout fields */
+  #name, #address, #email, #contactNumber,
+  #card-number, #security-code {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .button {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+/* ---------- Small phones (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .bat h1 {
+    font-size: 24px !important;
+  }
+
+  .login-container h1 {
+    font-size: 26px !important;
+  }
+
+  .win, .tin, .pin, .bin, .sin, .kin, .din, .rin {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  button {
+    font-size: 14px !important;
+  }
+}
